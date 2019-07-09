@@ -5,7 +5,11 @@
     http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean name="customerRepository" class="com.tutorial.repository.HibernateCustomerRepositoryImpl"/>
+    <bean name="employeeRepository" class="com.tutorial.repository.HibernateEmployeeRepositoryImpl"></bean>
     <bean name="customerService" class="com.tutorial.service.CustomerServiceImpl">
         <property name="customerRepository" ref="customerRepository"></property>
+    </bean>
+    <bean name="employeeService" class="com.tutorial.service.EmployeeServiceImpl">
+        <constructor-arg index="0" ref="employeeRepository"/>
     </bean>
 </beans>
